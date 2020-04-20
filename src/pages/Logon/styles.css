@@ -1,21 +1,15 @@
-.imagem1{
-    padding-top: 70px;
-    padding-left: 360px;
-}
-.imagem2{
-    display: flexbox;
+
+.barinha{
+    min-width: 100%;
 }
 
-.formulario {
-    padding-left: 100px;
-    padding-top: 200px;
+
+.imagem1 {
+    padding: 20px;
 }
-.formulario h1{
-    padding-bottom: 100px;
-}
-.formulario input{
-    padding: 12px;
-    border-radius: 60px;
-    width: 360px;
+
+
+.imagem {
+    display: flex;
 }
 
