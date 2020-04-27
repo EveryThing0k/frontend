@@ -3,7 +3,7 @@ import React from 'react';
 import './styles-signup.css';
 
 import FormSignup from '../../components/SignUp/index.js';
-import imgsignup from '../../assets/img_singup.png';
+import imgsignup from '../../assets/img_signup.png';
 import imgperson2 from '../../assets/img_logon2.png';
 
 export default function Logon() {

@@ -4,13 +4,17 @@ import { Switch, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Logon from './pages/Logon';
-import SingIn from './pages/SingIn';
+import Singin from './pages/SingIn';
+import Signup from './pages/SignUp';
 
 export default function routes() {
   return (
     <Switch>
-      <Route path="/singin">
-        <SingIn />
+      <Route path="/signup">
+        <Signup />
+      </Route>
+      <Route path="/signin">
+        <Singin />
       </Route>
       <Route path="/dashboard">
         <Dashboard />
@@ -18,7 +22,7 @@ export default function routes() {
       <Route path="/profile">
         <Profile />
       </Route>
-      <Route path="/" >
+      <Route path="/" exact >
         <Logon />
       </Route>
     </Switch>
