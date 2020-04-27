@@ -1,0 +1,38 @@
+h1{
+    color: #9C50E8;
+    padding: 27px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
+}
+
+.form-control{
+  border-radius: 60px;
+}
+
+.footerimg{
+  min-width: 100%;
+  height: auto;
+}
+
+.btn-primary{
+  background: #9C50E8;
+  border-radius: 60px;
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;
+}
+:-ms-input-placeholder {
+   text-align: center;
+}
+.navbar{
+  background: #9C50E8;
+}
