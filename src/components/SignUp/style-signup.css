@@ -1,0 +1,36 @@
+.formsignip{
+    display: flex;
+    flex:1;
+    justify-content: center;
+}
+.h1signup{
+    color: #9C50E8;
+    display: block;
+    text-align: center;
+    font-size: 25px;
+    margin-top:150px;
+    display: flex;
+}
+.inputsignup{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 60px;
+    width: 300px;
+    height: 60px;
+    border: 1px solid #000;
+    margin: 10px 0;
+}
+.buttonregistrar{
+    display:flex;
+    background: #9C50E8;
+    color: #fff;
+    width: 300px;
+    height: 50px;
+    border-radius: 60px;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    border: none;
+} 

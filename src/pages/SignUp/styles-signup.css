@@ -1,0 +1,19 @@
+
+.barinha{
+    min-width: 100%;
+}
+.signupimg {
+    width: 1120;
+    max-width: 100%;
+    min-width: 50%;
+    margin-top: 50px;
+    flex-wrap:nowrap;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+}
+.imagem {
+    display: flex;
+}
+
+
