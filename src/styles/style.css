@@ -33,6 +33,22 @@ h1{
 :-ms-input-placeholder {
    text-align: center;
 }
+.sidebar{
+  height: 100%;
+  position: fixed;
+  padding-top: 80px
+}
 .navbar{
   background: #9C50E8;
+}
+.board{
+  padding-top: 80px
+}
+.newCard{
+  background: #9C50E8;
+  height: 50px;
+  width: 50px;
+  border-radius: 120px;
+  border: none;
+  outline: none;
 }
