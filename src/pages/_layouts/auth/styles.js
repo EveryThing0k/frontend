@@ -11,4 +11,6 @@ export const Wrapper = styled.div`
 
 export const Wave = styled.img`
   width: 100%;
+  max-height: 100%;
+  min-width: 100%;
 `;

@@ -1,7 +1,8 @@
 import axios from 'axios';
 
+// https://api-everythingok.herokuapp.com
 const api = axios.create({
-  baseURL: 'https://api-everythingok.herokuapp.com',
+  baseURL: 'http://127.0.0.1:3333',
 });
 
 export default api;
