@@ -69,6 +69,7 @@ export const Button = styled.button`
   background: transparent;
   border: none;
   outline: none;
+  margin-left: 2px;
   img {
     height: 54px;
     width: 54px;

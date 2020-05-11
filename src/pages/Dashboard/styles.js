@@ -1,4 +1,6 @@
+import React from 'react';
 import styled from 'styled-components';
+import FolderComp from '../../components/Folder';
 
 export const Container = styled.div`
   display: flex;
@@ -41,3 +43,5 @@ export const Content = styled.div`
   background: #f5f5f5;
   overflow: auto;
 `;
+
+export const FolderImg = styled(FolderComp)``;
