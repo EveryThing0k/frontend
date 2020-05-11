@@ -10,12 +10,13 @@ export default function Button({
   icon,
   children,
   onClick,
+  loading,
 }) {
   return (
     <Container style={style} color={color} onClick={onClick}>
       <Icon>{icon}</Icon>
       <div style={styletext} colortext={colortext}>
-        {children}
+        {loading ? 'Carregando...' : children}
       </div>
     </Container>
   );

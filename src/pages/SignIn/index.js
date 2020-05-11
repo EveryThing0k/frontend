@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import signin from '../../assets/signin.svg';
 
@@ -10,6 +10,8 @@ import { Container, Form, Input, Button } from './styles';
 export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const loading = useSelector(state => state.auth.loading);
+
   const dispatch = useDispatch();
 
   function handleSubmit() {
@@ -32,7 +34,10 @@ export default function SignIn() {
           onChangeValue={setPassword}
           type="password"
         />
-        <Button onClick={handleSubmit}> Login </Button>
+        <Button loading={loading} onClick={handleSubmit}>
+          {' '}
+          Login{' '}
+        </Button>
         <p>
           Não possui uma conta? <Link to="/signup">Criar Conta</Link>
         </p>

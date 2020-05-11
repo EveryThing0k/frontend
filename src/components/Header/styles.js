@@ -64,3 +64,13 @@ export const Content = styled.div`
     }
   }
 `;
+
+export const Button = styled.button`
+  background: transparent;
+  border: none;
+  outline: none;
+  img {
+    height: 54px;
+    width: 54px;
+  }
+`;

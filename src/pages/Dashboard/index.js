@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { MdFolder } from 'react-icons/md';
 import { Container, Sidebar, Content } from './styles';
 
