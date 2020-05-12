@@ -1,18 +1,32 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Popover } from '@material-ui/core';
+
 import { Link } from 'react-router-dom';
 
 import { signOut } from '../../store/modules/auth/actions';
 
 import { Container, Content, Button } from './styles';
+import PopoverComp from '../Popover';
 import userProfile from '~/assets/profile.svg';
 
 export default function Header() {
   const dispatch = useDispatch();
   const userName = useSelector(state => state.user.profile.name);
+  const userEmail = useSelector(state => state.user.profile.email);
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleSignOut() {
     dispatch(signOut());
+  }
+
+  function handlePopOverOpen(event) {
+    setAnchorEl(event.currentTarget);
+  }
+
+  function handlePopOverClose() {
+    setAnchorEl(null);
   }
 
   return (
@@ -24,12 +38,35 @@ export default function Header() {
         </nav>
         <aside>
           <div>
-            <strong>{userName || 'Usuário N'} </strong>
+            <strong>{userName.split(' ')[0] || 'Usuário N'}</strong>
             Nível 09
           </div>
-          <Button onClick={handleSignOut}>
+          <Button
+            aria-describedby="popover-profile"
+            onClick={handlePopOverOpen}
+          >
             <img src={userProfile} alt="Profile" />
           </Button>
+          <Popover
+            id="popover-profile"
+            open={anchorEl}
+            anchorEl={anchorEl}
+            onClose={handlePopOverClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'center',
+            }}
+          >
+            <PopoverComp
+              name={userName}
+              email={userEmail}
+              handleLogout={handleSignOut}
+            />
+          </Popover>
         </aside>
       </Content>
     </Container>
