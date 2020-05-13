@@ -1,7 +1,5 @@
 import React from 'react';
-
 import {
-  MdHome,
   MdTitle,
   MdLocationOn,
   MdDomain,
@@ -10,14 +8,16 @@ import {
   MdNaturePeople,
   MdMyLocation,
 } from 'react-icons/md';
-import { Container, Form, Input, Button } from './styles';
-import signup_company from '../../assets/signup_company.png';
+import { Container, Content, Input, Button } from './styles';
 
-function SignUpCompany() {
+import createCompanyImg from '../../assets/create_company.svg';
+
+export default function CreateCompany() {
   return (
     <Container>
-      <Form>
-        <h1>Registar Empresa</h1>
+      <Content>
+        <h1>VOCÊ AINDA NÃO PERTENCE A NENHUMA EMPRESA</h1>
+        <h2>Crie sua empresa agora mesmo!</h2>
         <Input icon={<MdTitle size={20} />} placeholder="Nome Fantasia" />
         <Input icon={<MdMap size={20} />} placeholder="CEP" />
         <Input icon={<MdNaturePeople size={20} />} placeholder="Rua" />
@@ -28,10 +28,8 @@ function SignUpCompany() {
           <Input icon={<MdMyLocation size={20} />} placeholder="Número" />
         </div>
         <Button>REGISTRAR</Button>
-      </Form>
-      <img src={signup_company} alt="evok" />
+      </Content>
+      <img src={createCompanyImg} alt="CreateCompany" />
     </Container>
   );
 }
-
-export default SignUpCompany;

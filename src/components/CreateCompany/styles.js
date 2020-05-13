@@ -1,40 +1,46 @@
 import styled from 'styled-components';
+import InputComp from '../Input';
+import ButtonComp from '../Button';
 import colors from '../../styles/colors';
-import InputComp from '../../components/Input';
-import ButtonComp from '../../components/Button';
 
 export const Container = styled.div`
-  width: 100%;
   display: flex;
-  padding-top: 30px;
+  width: 100%;
   justify-content: space-around;
   align-items: center;
-  img {
-    max-width: 40%;
-    height: auto;
-  }
 
-  div {
-    display: flex;
-    max-width: 400px;
+  img {
+    max-width: 500px;
+    max-height: 500px;
   }
 `;
 
-export const Form = styled.div`
+export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   h1 {
-    font-weight: normal;
+    font-weight: 500;
     color: ${colors.primary};
     font-size: 25px;
     margin-bottom: 20px;
   }
 
+  h2 {
+    color: #444444;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
   a {
     color: ${colors.primary};
+  }
+
+  div {
+    display: flex;
+    max-width: 400px;
   }
 `;
 
@@ -48,5 +54,6 @@ export const Input = styled(InputComp).attrs({
 export const Button = styled(ButtonComp).attrs({
   style: {
     margin: '10px 0',
+    width: 400,
   },
 })``;

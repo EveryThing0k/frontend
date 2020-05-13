@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Sidebar, Content, FolderImg } from './styles';
 
 import Board from '../../components/Board';
+import CreateCompany from '../../components/CreateCompany';
 
 export default function Dashboard() {
   return (
@@ -22,7 +23,8 @@ export default function Dashboard() {
         </div>
       </Sidebar>
       <Content>
-        <Board />
+        {/* <Board /> */}
+        <CreateCompany />
       </Content>
     </Container>
   );

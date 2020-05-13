@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { MdAdd } from 'react-icons/md';
-
 import Card from '../Card';
 
 import { Container } from './styles';
