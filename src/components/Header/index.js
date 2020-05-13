@@ -34,7 +34,7 @@ export default function Header() {
       <Content>
         <nav>
           <Link to="/">EVERYTHING OK</Link>
-          <Link to="/suport">SUPORTE</Link>
+          {/* <Link to="/suport">SUPORTE</Link> */}
         </nav>
         <aside>
           <div>

@@ -28,10 +28,6 @@ export default function Popover({ name, email, handleLogout }) {
           <MdTrendingUp size={23} color="#444444" />
           <strong>Nível</strong>
         </button>
-        <button type="button">
-          <MdSettings size={23} color="#444444" />
-          <strong>Configurações</strong>
-        </button>
         <button type="button" onClick={handleLogout}>
           <MdExitToApp size={23} color="#ff0000" />
           <strong>Sair</strong>

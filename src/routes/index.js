@@ -5,6 +5,7 @@ import Route from './Route';
 import Dashboard from '../pages/Dashboard';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
+import SignUpCompany from '../pages/SignUpCompany';
 
 export default function Routes() {
   return (
@@ -14,6 +15,9 @@ export default function Routes() {
       </Route>
       <Route path="/signup">
         <SignUp />
+      </Route>
+      <Route path="/signupcompany">
+        <SignUpCompany />
       </Route>
       <Route path="/" isPrivate>
         <Dashboard />
