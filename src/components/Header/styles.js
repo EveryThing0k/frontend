@@ -23,6 +23,12 @@ export const Content = styled.div`
       padding-right: 20px;
       border-right: 1px solid #eee;
       margin-right: 20px;
+
+      img {
+        width: 250px;
+        height: 40px;
+        border-right: none;
+      }
     }
 
     img {

@@ -1,4 +1,6 @@
 import React from 'react';
+import './styles/steps.css';
+
 import { DndProvider } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { PersistGate } from 'redux-persist/integration/react';

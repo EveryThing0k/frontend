@@ -9,6 +9,7 @@ import { signOut } from '../../store/modules/auth/actions';
 import { Container, Content, Button } from './styles';
 import PopoverComp from '../Popover';
 import userProfile from '~/assets/profile.svg';
+import logo from '~/assets/logo.png';
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -33,7 +34,9 @@ export default function Header() {
     <Container>
       <Content>
         <nav>
-          <Link to="/">EVERYTHING OK</Link>
+          <Link to="/">
+            <img src={logo} alt="EVOK" />
+          </Link>
           {/* <Link to="/suport">SUPORTE</Link> */}
         </nav>
         <aside>
@@ -65,6 +68,7 @@ export default function Header() {
               name={userName}
               email={userEmail}
               handleLogout={handleSignOut}
+              onClickClose={handlePopOverClose}
             />
           </Popover>
         </aside>

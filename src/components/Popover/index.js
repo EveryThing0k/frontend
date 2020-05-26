@@ -1,15 +1,10 @@
 import React from 'react';
-
-import {
-  MdTrendingUp,
-  MdAccountCircle,
-  MdSettings,
-  MdExitToApp,
-} from 'react-icons/md';
+import { Link } from 'react-router-dom';
+import { MdTrendingUp, MdAccountCircle, MdExitToApp } from 'react-icons/md';
 import { Container, Header, Content } from './styles';
 import profileImg from '../../assets/profile.svg';
 
-export default function Popover({ name, email, handleLogout }) {
+export default function Popover({ name, email, handleLogout, onClickClose }) {
   return (
     <Container>
       <Header>
@@ -20,14 +15,14 @@ export default function Popover({ name, email, handleLogout }) {
         <img src={profileImg} alt="Evok" />
       </Header>
       <Content>
-        <button type="button">
+        <Link to="/profile" onClick={onClickClose}>
           <MdAccountCircle size={23} color="#444444" />
           <strong>Meu Perfil</strong>
-        </button>
-        <button type="button">
+        </Link>
+        <Link to="/level" onClick={onClickClose}>
           <MdTrendingUp size={23} color="#444444" />
           <strong>Nível</strong>
-        </button>
+        </Link>
         <button type="button" onClick={handleLogout}>
           <MdExitToApp size={23} color="#ff0000" />
           <strong>Sair</strong>

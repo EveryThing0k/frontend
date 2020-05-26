@@ -7,6 +7,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   margin-top: 10px;
 
+  a,
   button {
     cursor: pointer;
     display: flex;
@@ -23,7 +24,7 @@ export const Content = styled.div`
     }
   }
 
-  button:last-child {
+  button {
     margin-top: 25px;
     margin-bottom: 0;
   }

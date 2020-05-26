@@ -14,24 +14,23 @@ export const Sidebar = styled.div`
   justify-content: center;
   padding: 20px;
 
-  h1 {
+  h5 {
     font-size: 16px;
     color: #444444;
-    margin-bottom: 20px;
   }
+`;
 
-  div {
+export const Projects = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+
+  h5 {
+    margin-left: 5px;
+    font-weight: normal;
+    color: #333333;
+    font-size: 16px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-
-    h2 {
-      margin-left: 5px;
-      font-weight: normal;
-      color: #333333;
-      font-size: 16px;
-    }
   }
 `;
 
