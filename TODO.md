@@ -1,4 +1,0 @@
-- [x] Terminar de fazer a página de Level
-- [x] Terminar de fazer a página de Profile
-- [ ] Listar os projetos e tornalos "clicáveis"
-- [ ] Listar as tarefas

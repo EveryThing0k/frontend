@@ -26,17 +26,16 @@ export default function SignIn() {
         <Input
           value={email}
           placeholder="Digite seu e-mail..."
-          onChangeValue={setEmail}
+          onChange={e => setEmail(e.target.value)}
         />
         <Input
           value={password}
           placeholder="Digite sua senha..."
-          onChangeValue={setPassword}
+          onChange={e => setPassword(e.target.value)}
           type="password"
         />
         <Button loading={loading} onClick={handleSubmit}>
-          {' '}
-          Login{' '}
+          Login
         </Button>
         <p>
           Não possui uma conta? <Link to="/signup">Criar Conta</Link>

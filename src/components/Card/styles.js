@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
-  background: #ffff
+  background: #ffff;
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 15px;
@@ -14,6 +14,12 @@ export const Container = styled.div`
     position: absolute;
     top: -22px;
     left: 15px;
+
+    svg {
+      position: absolute;
+      bottom: 20px;
+      left: 240px;
+    }
   }
 
   p {

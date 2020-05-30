@@ -6,20 +6,12 @@ import { Container } from './styles';
 export default function Input({
   style,
   icon = <MdMailOutline size={20} color="#404040" />,
-  placeholder = 'Digite...',
-  onChangeValue,
-  value,
-  type,
+  ...rest
 }) {
   return (
     <Container style={style}>
       {icon}
-      <input
-        placeholder={placeholder}
-        value={value}
-        onChange={e => onChangeValue(e.target.value)}
-        type={type}
-      />
+      <input {...rest} />
     </Container>
   );
 }
