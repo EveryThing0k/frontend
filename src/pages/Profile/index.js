@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdLockOutline, MdFace } from 'react-icons/md';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -6,6 +6,7 @@ import profileImg from '../../assets/profile.svg';
 import profileDataImg from '../../assets/profile_data.svg';
 import { Container, Header, Content, Form, Input, Button } from './styles';
 import { updateProfileRequest } from '../../store/modules/user/actions';
+import api from '../../services/api';
 
 export default function Profile() {
   const profile = useSelector(state => state.user.profile);
@@ -14,6 +15,7 @@ export default function Profile() {
   const [email, setEmail] = useState(profile.email);
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const [level, setLevel] = useState('');
 
   async function handleSubmit() {
     if (password.length > 0) {
@@ -33,13 +35,21 @@ export default function Profile() {
     }
   }
 
+  useEffect(() => {
+    async function getUserLevel() {
+      const response = await api.get('/user');
+      setLevel(response.data.level);
+    }
+    getUserLevel();
+  }, []);
+
   return (
     <Container>
       <Header>
         <img src={profileImg} alt="Evok" />
         <div>
           <h3>{profile.name}</h3>
-          <h4>Nível 09</h4>
+          <h4>Nível {level}</h4>
         </div>
       </Header>
       <Content>

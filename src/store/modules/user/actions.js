@@ -12,6 +12,12 @@ export function updateProfileSuccess(profile) {
   };
 }
 
+export function updateType() {
+  return {
+    type: '@user/UPDATE_TYPE',
+  };
+}
+
 export function updateProfileFailure() {
   return {
     type: '@user/UPDATE_PROFILE_FAILURE',

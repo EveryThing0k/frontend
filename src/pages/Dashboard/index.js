@@ -87,16 +87,20 @@ export default function Dashboard() {
             />
           </Projects>
         ))}
-        <AddProjects>
-          <MdAdd size={20} color="#999999" />
-          <input
-            placeholder="Criar um novo projeto"
-            onChange={handleAddProjectInput}
-            value={addProjectInput}
-          />
-        </AddProjects>
-        {addProjectInput.length > 0 && (
-          <Button onClick={handleAddProjectSubmit}>Criar</Button>
+        {userType === 'company' && (
+          <>
+            <AddProjects>
+              <MdAdd size={20} color="#999999" />
+              <input
+                placeholder="Criar um novo projeto"
+                onChange={handleAddProjectInput}
+                value={addProjectInput}
+              />
+            </AddProjects>
+            {addProjectInput.length > 0 && (
+              <Button onClick={handleAddProjectSubmit}>Criar</Button>
+            )}
+          </>
         )}
       </Sidebar>
       <Content>

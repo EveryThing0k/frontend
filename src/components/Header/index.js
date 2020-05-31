@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Popover } from '@material-ui/core';
-
 import { Link } from 'react-router-dom';
+import api from '../../services/api';
 
 import { signOut } from '../../store/modules/auth/actions';
 
@@ -12,6 +12,7 @@ import userProfile from '~/assets/profile.svg';
 import logo from '~/assets/logo.png';
 
 export default function Header() {
+  const [level, setLevel] = useState('----');
   const dispatch = useDispatch();
   const userName = useSelector(state => state.user.profile.name);
   const userEmail = useSelector(state => state.user.profile.email);
@@ -30,6 +31,14 @@ export default function Header() {
     setAnchorEl(null);
   }
 
+  useEffect(() => {
+    async function getUserLevel() {
+      const response = await api.get('/user');
+      setLevel(response.data.level);
+    }
+    getUserLevel();
+  }, []);
+
   return (
     <Container>
       <Content>
@@ -42,7 +51,7 @@ export default function Header() {
         <aside>
           <div>
             <strong>{userName.split(' ')[0] || 'Usuário N'}</strong>
-            Nível 09
+            Nível {level}
           </div>
           <Button
             aria-describedby="popover-profile"

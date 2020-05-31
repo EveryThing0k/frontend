@@ -31,13 +31,4 @@ export function* updateProfile({ payload }) {
   }
 }
 
-export function* updateProvider({ payload }) {
-  const { provider } = payload;
-
-  yield call(api.put, 'users', { provider });
-}
-
-export default all([
-  takeLatest('@user/UPDATE_PROFILE_REQUEST', updateProfile),
-  takeLatest('@user/UPDATE_PROVIDER', updateProvider),
-]);
+export default all([takeLatest('@user/UPDATE_PROFILE_REQUEST', updateProfile)]);

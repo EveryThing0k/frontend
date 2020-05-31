@@ -5,6 +5,13 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+
+  h1 {
+    margin-top: 30px;
+    text-align: center;
+    font-weight: 500;
+    color: #444444;
+  }
 `;
 
 export const Content = styled.div`
