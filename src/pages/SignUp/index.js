@@ -71,7 +71,9 @@ export default function SignUp() {
           onChange={e => setDoc(e.target.value)}
           value={doc}
         />
-        <Button onClick={handleSubmit}>REGISTRAR</Button>
+        <Button onClick={handleSubmit}>
+          {loading ? 'Carregando' : 'Registrar'}
+        </Button>
         <p>
           Já possui uma conta? <Link to="/">Entrar</Link>
         </p>
