@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { MdAdd } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 import produce from 'immer';
-
+import semProjos from '../../assets/sprojetos.svg';
 import BoardContext from './context';
 
 import List from '../List';
@@ -79,9 +79,23 @@ export default function Board({ projectId }) {
             )}
           </>
         ) : (
-          <h1>
-            Você ainda não possui tarefas nem projetos para chamar de seu.
-          </h1>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              placeContent: 'center',
+              margin: '20px 20px',
+            }}
+          >
+            <h1>
+              Você ainda não possui tarefas nem projetos para chamar de seu.
+            </h1>
+            <img
+              style={{ width: '80%', height: '80%', marginTop: '30px' }}
+              src={semProjos}
+              alt="Sem projetos"
+            />
+          </div>
         )}
       </Container>
     </BoardContext.Provider>
