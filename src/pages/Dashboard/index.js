@@ -80,11 +80,13 @@ export default function Dashboard() {
               <FolderImg active={project.project_id === projectIdSelected} />
               <h5>{project.title}</h5>
             </div>
-            <MdDelete
-              size={17}
-              color="#999999"
-              onClick={() => handleProjectDelete(project.project_id)}
-            />
+            {userType === 'company' && (
+              <MdDelete
+                size={17}
+                color="#999999"
+                onClick={() => handleProjectDelete(project.project_id)}
+              />
+            )}
           </Projects>
         ))}
         {userType === 'company' && (
@@ -104,10 +106,10 @@ export default function Dashboard() {
         )}
       </Sidebar>
       <Content>
-        {userType === 'company' ? (
-          <Board projectId={projectIdSelected} />
-        ) : (
+        {userType === 'registered' ? (
           <CreateCompany />
+        ) : (
+          <Board projectId={projectIdSelected} />
         )}
       </Content>
     </Container>

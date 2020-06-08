@@ -1,14 +1,33 @@
-import React, { useRef, useContext } from 'react';
-import { confirmAlert } from 'react-confirm-alert';
+import React, { useState, useRef, useContext } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
-import { MdDelete } from 'react-icons/md';
+import { MdDone } from 'react-icons/md';
+import { useSelector } from 'react-redux';
 import BoardContext from '../Board/context';
 import api from '../../services/api';
 import { Container } from './styles';
+import MembersConcluded from '../MembersConluded';
 
 export default function Card({ data, index, listIndex, setLists, projectId }) {
   const ref = useRef();
+  const [open, setOpen] = useState(false);
+  const [id, setId] = useState();
+  const [employees, setEmployees] = useState([]);
   const { move } = useContext(BoardContext);
+  const userType = useSelector(state => state.user.profile.type);
+
+  async function getTasks() {
+    const response = await api.get(`/tasks/${projectId}`);
+    setLists(response.data);
+  }
+
+  function handleClose() {
+    setOpen(false);
+  }
+
+  async function handleSubmit() {
+    await api.put(`/tasks/${id}`, { emails: employees });
+    getTasks();
+  }
 
   const [{ isDragging }, dragRef] = useDrag({
     item: { type: 'CARD', index, listIndex },
@@ -47,51 +66,47 @@ export default function Card({ data, index, listIndex, setLists, projectId }) {
         return;
       }
 
-      move(draggedListIndex, targetListIndex, draggedIndex, targetIndex);
+      if (draggedListIndex && targetListIndex && targetIndex && draggedIndex) {
+        move(draggedListIndex, targetListIndex, draggedIndex, targetIndex);
 
-      item.index = targetIndex;
-      item.listIndex = targetListIndex;
+        item.index = targetIndex;
+        item.listIndex = targetListIndex;
+      }
     },
   });
 
   dragRef(dropRef(ref));
 
-  async function getTasks() {
-    const response = await api.get(`/tasks/${projectId}`);
-    setLists(response.data);
-  }
-
-  async function handleTaskDelete(id) {
-    confirmAlert({
-      title: 'Quer realmente exclui-lo?',
-      message: 'Você não pode reverter essa alteração',
-      buttons: [
-        {
-          label: 'Sim',
-          onClick: async () => {
-            await api.delete(`/tasks/${id}`);
-            getTasks();
-          },
-        },
-        {
-          label: 'Não',
-        },
-      ],
-    });
+  async function handleTaskConcluded(idTask) {
+    setOpen(!open);
+    setId(idTask);
   }
 
   return (
-    <Container ref={ref} isDragging={isDragging}>
-      <header>
-        <MdDelete
-          size={20}
-          color="white"
-          onClick={() => handleTaskDelete(data.id)}
-        />
-      </header>
-      <div>
-        <p>{data.content}</p>
-      </div>
-    </Container>
+    <>
+      {data && (
+        <Container ref={ref} isDragging={isDragging}>
+          <header>
+            {userType === 'company' && (
+              <MdDone
+                size={20}
+                color="white"
+                onClick={() => handleTaskConcluded(data.id)}
+              />
+            )}
+          </header>
+          <div>
+            <p>{data.content}</p>
+          </div>
+          <MembersConcluded
+            open={open}
+            handleClose={handleClose}
+            employees={employees}
+            setEmployees={setEmployees}
+            handleSubmit={handleSubmit}
+          />
+        </Container>
+      )}
+    </>
   );
 }

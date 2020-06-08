@@ -12,9 +12,10 @@ export function updateProfileSuccess(profile) {
   };
 }
 
-export function updateType() {
+export function updateType(type) {
   return {
     type: '@user/UPDATE_TYPE',
+    payload: { type },
   };
 }
 

@@ -36,7 +36,7 @@ export default function Level() {
         <Steps.Item title="Waiting" description="Description" />
         <Steps.Item title="Waiting" description="Description" />
       </Steps> */}
-      <h1>Você está no nível 1</h1>
+      <h1>Você está no nível {level}</h1>
       <Content>
         <CircularProgress>
           <CircularProgressbar

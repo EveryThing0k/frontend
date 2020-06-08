@@ -41,7 +41,7 @@ export default function CreateCompany() {
       },
     });
     toast.success('Criado com sucesso!');
-    dispatch(updateType());
+    dispatch(updateType('company'));
   }
   return (
     <Container>

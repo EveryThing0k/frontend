@@ -17,8 +17,17 @@ export default function SignUp() {
     if (doc.length > 11) {
       history.push('/signupcompany', { name, email, password, cnpj: doc });
     } else {
-      await api.post('/users/cpf', { name, email, password, cpf: doc });
-      toast.success('Criado com sucesso, você pode logar na aplicação');
+      try {
+        await api.post('/users/cpf', { name, email, password, cpf: doc });
+        toast.success('Criado com sucesso, você pode logar na aplicação');
+      } catch (err) {
+        if (Number(err.response.status) === 401) {
+          toast.error('Seu e-mail não está habilitado para registro');
+          history.push('/');
+          return;
+        }
+        toast.error('Erro ao criar o usuário');
+      }
       history.push('/');
     }
   }

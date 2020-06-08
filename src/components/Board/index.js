@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { MdAdd } from 'react-icons/md';
+import { useSelector } from 'react-redux';
 import produce from 'immer';
 
 import BoardContext from './context';
@@ -14,6 +15,7 @@ import { Container, AddList, AddListInput, Button } from './styles';
 export default function Board({ projectId }) {
   const [lists, setLists] = useState([]);
   const [addList, setAddList] = useState('');
+  const userType = useSelector(state => state.user.profile.type);
 
   async function getTasks() {
     const response = await api.get(`/tasks/${projectId}`);
@@ -60,19 +62,21 @@ export default function Board({ projectId }) {
                 setLists={setLists}
               />
             ))}
-            <AddList>
-              <AddListInput>
-                <MdAdd size={20} color="#999999" />
-                <input
-                  placeholder="Adicionar nova lista"
-                  value={addList}
-                  onChange={e => setAddList(e.target.value)}
-                />
-              </AddListInput>
-              {addList.length > 0 && (
-                <Button onClick={handleCreatelist}>Criar</Button>
-              )}
-            </AddList>
+            {userType === 'company' && (
+              <AddList>
+                <AddListInput>
+                  <MdAdd size={20} color="#999999" />
+                  <input
+                    placeholder="Adicionar nova lista"
+                    value={addList}
+                    onChange={e => setAddList(e.target.value)}
+                  />
+                </AddListInput>
+                {addList.length > 0 && (
+                  <Button onClick={handleCreatelist}>Criar</Button>
+                )}
+              </AddList>
+            )}
           </>
         ) : (
           <h1>

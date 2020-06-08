@@ -26,23 +26,27 @@ function SignUpCompany() {
 
   async function handleSubmit() {
     const { name, email, password, cnpj } = data;
-    await api.post('/users/cnpj', {
-      fantasy_name: fantasyName,
-      name,
-      email,
-      password,
-      cnpj,
-      address: {
-        neighborhood: neigh,
-        number,
-        street,
-        city,
-        state: UF,
-        cep,
-      },
-    });
-    toast.success('Criado com sucesso, você pode logar na aplicação');
-    history.push('/');
+    try {
+      await api.post('/users/cnpj', {
+        fantasy_name: fantasyName,
+        name,
+        email,
+        password,
+        cnpj,
+        address: {
+          neighborhood: neigh,
+          number,
+          street,
+          city,
+          state: UF,
+          cep,
+        },
+      });
+      toast.success('Criado com sucesso, você pode logar na aplicação');
+      history.push('/');
+    } catch (err) {
+      toast.error('Erro ao criar o usuário');
+    }
   }
 
   useEffect(() => {

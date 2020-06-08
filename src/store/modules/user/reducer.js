@@ -18,7 +18,7 @@ export default function user(state = INITIAL_STATE, action) {
       case '@user/UPDATE_TYPE': {
         draft.profile = {
           ...draft.profile,
-          type: 'company',
+          type: action.payload.type,
         };
         break;
       }
