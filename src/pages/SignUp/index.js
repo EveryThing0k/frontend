@@ -12,16 +12,26 @@ export default function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [doc, setDoc] = useState('');
+  const [loading, setLoading] = useState(false);
 
   async function handleSubmit() {
     if (doc.length > 11) {
       history.push('/signupcompany', { name, email, password, cnpj: doc });
     } else {
       try {
+        if (loading) {
+          return;
+        }
+        setLoading(true);
         await api.post('/users/cpf', { name, email, password, cpf: doc });
         toast.success('Criado com sucesso, você pode logar na aplicação');
       } catch (err) {
-        if (Number(err.response.status) === 401) {
+        if (
+          err &&
+          err.response &&
+          err.response.status &&
+          Number(err.response.status) === 401
+        ) {
           toast.error('Seu e-mail não está habilitado para registro');
           history.push('/');
           return;
@@ -30,6 +40,7 @@ export default function SignUp() {
       }
       history.push('/');
     }
+    setLoading(false);
   }
 
   return (
